@@ -1,0 +1,104 @@
+{
+  "name": "meeting-recorder-design-handoff",
+  "version": "1.0",
+  "createdAt": "2026-09-09T07:59:06.602Z",
+  "scope": "已确认的五页前端设计与原项目接入说明",
+  "sourceBaseline": "source-baseline.json",
+  "previewImage": {
+    "path": "reference/library-approved.png",
+    "width": 1800,
+    "height": 1250
+  },
+  "files": [
+    {
+      "path": "AGENT-TASK.md",
+      "bytes": 3028,
+      "sha256": "17970f06996cb59463f01dfad412422652d01d3f55c3c1929dbd942cf5ef9901"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3192,
+      "sha256": "164c9ccd12b313d173309b92623a1ba101fd489f55871e257eb38a51f7959789"
+    },
+    {
+      "path": "design/app-settings.html",
+      "bytes": 128485,
+      "sha256": "a3d950592287259d1bf6a6a758dfab1c8921478c20bc47b73b2413731bdc839f"
+    },
+    {
+      "path": "design/index.html",
+      "bytes": 128487,
+      "sha256": "0689fb036e7b75dad8c27239ffa6daa265eaa3cbf896fc235fa8e375eda6d132"
+    },
+    {
+      "path": "design/meeting-ask.html",
+      "bytes": 128486,
+      "sha256": "5b42f3a7803c49b2e94b8d642fcd554f5fb4296f3eb1dbc46c9bac4dcb74133c"
+    },
+    {
+      "path": "design/meeting-workspace.html",
+      "bytes": 128493,
+      "sha256": "65699933906b55932690657115ca5e70a23670a876e5e8a94975948e437ce849"
+    },
+    {
+      "path": "design/project-tracking.html",
+      "bytes": 128491,
+      "sha256": "8d43bd4205a82b5f9c4b257f95f8632c554c105e8c3ca04a196c1decaa2cd4d6"
+    },
+    {
+      "path": "docs/acceptance.md",
+      "bytes": 3113,
+      "sha256": "481d97e840f2dae5049011c733d7526c9882711c24af362e8a5d6721be2d7828"
+    },
+    {
+      "path": "docs/design-baseline.md",
+      "bytes": 3377,
+      "sha256": "997f516e37b96763d5184fa3f5055f8fe5ab0e7039693961ee290ea5ff2d32fa"
+    },
+    {
+      "path": "docs/implementation-plan.md",
+      "bytes": 2476,
+      "sha256": "1b2f5cd8438c45f5c06de7e2f9f8fe86bf4d02b8122b51ffc52caa0c6933a811"
+    },
+    {
+      "path": "docs/integration-map.md",
+      "bytes": 7362,
+      "sha256": "ccb407bb6fe63e9ddfb2b52ac1468d276652e4e2a9bebaa8d07289a6b7bd496c"
+    },
+    {
+      "path": "reference/demo-transcript.json",
+      "bytes": 776,
+      "sha256": "9a2f759d5a0481044c71c32e9a7c992905eea9d92f19d2c1ec985682a88ec076"
+    },
+    {
+      "path": "reference/design-system.css",
+      "bytes": 59714,
+      "sha256": "ffb18fd27849d48fc0f585baf5290dc050949caf83b80137fb9d6ed5195d8e1b"
+    },
+    {
+      "path": "reference/library-approved.png",
+      "bytes": 149405,
+      "sha256": "d1cfcf39164449eb6bf5e7777bba5e261a75769d0191d624ed25535a10410989"
+    },
+    {
+      "path": "reference/prototype-interactions.js",
+      "bytes": 68064,
+      "sha256": "295b21458dabf81f9555900e272693e04fe674325e64bfc33aa03d261cab6ca6"
+    },
+    {
+      "path": "source-baseline.json",
+      "bytes": 2603,
+      "sha256": "46c28a6c67bdf5d62823681c5492d8a641560db84547563643b10b9d94737716"
+    },
+    {
+      "path": "tools/check-package.cjs",
+      "bytes": 2365,
+      "sha256": "ea5262c404058c658f91f4fa3f4cf650e1d8b48f72798fc6f295eb5afb9429d8"
+    },
+    {
+      "path": "tools/preview.cjs",
+      "bytes": 1537,
+      "sha256": "3e19f7d6fb9798993ac9231f41abc82e82bdc1ef0490b3224654af4b41ae0d79"
+    }
+  ]
+}

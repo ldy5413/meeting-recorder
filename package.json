@@ -1,0 +1,105 @@
+{
+  "name": "meeting-recorder",
+  "version": "0.2.5",
+  "private": true,
+  "type": "module",
+  "description": "Local-first meeting recorder and evidence-linked analysis",
+  "author": "Meeting Recorder",
+  "license": "MIT",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare:electron": "node node_modules/electron/install.js",
+    "dev": "npm run prepare:electron && npm run build && electron .",
+    "build": "tsc --noEmit && vite build && node scripts/build.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "test:e2e": "npm run build && playwright test",
+    "pack": "npm run prepare:electron && npm run build && electron-builder --dir",
+    "prepare:local-asr": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-local-asr.ps1",
+    "dist:win": "npm run prepare:electron && npm run prepare:local-asr && npm run build && electron-builder --win nsis --x64 --config.electronDist=node_modules/electron/dist",
+    "dist:mac": "npm run build && electron-builder --mac dmg --arm64"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tar": "^7.5.7",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "electron": "44.2.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.2"
+  },
+  "build": {
+    "beforePack": "scripts/verify-bundled.cjs",
+    "afterPack": "scripts/verify-no-models.cjs",
+    "appId": "local.meeting.recorder",
+    "productName": "Meeting Recorder",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "package.json"
+    ],
+    "win": {
+      "extraResources": [
+        {
+          "from": ".local/bundled/local-asr",
+          "to": "local-asr",
+          "filter": [
+            "worker/**/*",
+            "licenses/**/*",
+            "source-manifest.json",
+            "model-catalog.json",
+            "THIRD-PARTY-NOTICES.txt"
+          ]
+        },
+        {
+          "from": ".local/bundled/media",
+          "to": "media"
+        }
+      ],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "minimumSystemVersion": "14.2",
+      "category": "public.app-category.productivity",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "录制会议麦克风声音",
+        "NSScreenCaptureUsageDescription": "录制会议系统声音",
+        "NSAudioCaptureUsageDescription": "录制会议系统声音"
+      }
+    }
+  }
+}

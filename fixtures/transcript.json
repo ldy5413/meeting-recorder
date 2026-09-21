@@ -1,0 +1,26 @@
+{
+  "description": "人工测试资料，仅用于验证导入、校对和证据流程；非真实录音转录。",
+  "segments": [
+    {
+      "id": "b1ece682-f0c3-4d91-9828-c1f555a2a581",
+      "start": 0,
+      "end": 8,
+      "speaker": "speaker-1",
+      "text": "我们决定先采用 SQLite，把会议数据保存在本机。"
+    },
+    {
+      "id": "b1ece682-f0c3-4d91-9828-c1f555a2a582",
+      "start": 8,
+      "end": 17,
+      "speaker": "speaker-2",
+      "text": "张三负责做录音恢复验证，下周五给出测试结果。"
+    },
+    {
+      "id": "b1ece682-f0c3-4d91-9828-c1f555a2a583",
+      "start": 17,
+      "end": 26,
+      "speaker": "speaker-1",
+      "text": "远程 GPU 只是一个备选建议，今天不决定购买算力。"
+    }
+  ]
+}

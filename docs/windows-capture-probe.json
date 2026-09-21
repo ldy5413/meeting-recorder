@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-05T00:16:57.668Z",
+  "platform": "win32",
+  "microphone": {
+    "ok": true,
+    "audioTracks": 1,
+    "tracks": [
+      {
+        "state": "live",
+        "muted": false,
+        "sampleRate": 48000,
+        "channels": 1
+      }
+    ]
+  },
+  "system": {
+    "ok": true,
+    "audioTracks": 1,
+    "tracks": [
+      {
+        "state": "live",
+        "muted": false,
+        "sampleRate": 48000,
+        "channels": 1
+      }
+    ]
+  },
+  "scope": "Real capture API and live audio track availability only; no audio fidelity or saved recording acceptance."
+}

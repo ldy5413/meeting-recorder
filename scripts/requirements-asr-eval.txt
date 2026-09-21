@@ -1,0 +1,4 @@
+# Public English WER evaluation only; not part of the packaged ASR runtime.
+regex==2024.11.6
+more-itertools==10.6.0
+rapidfuzz==3.12.2

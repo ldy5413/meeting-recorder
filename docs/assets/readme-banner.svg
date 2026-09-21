@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Meeting Recorder — From conversation to clarity.</title>
+  <desc id="desc">A blue waveform becomes a transcript, then a checked note. Local first. Evidence linked. Your models.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D141E"/>
+      <stop offset="1" stop-color="#14263D"/>
+    </linearGradient>
+    <linearGradient id="line" x1="624" y1="180" x2="1092" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#168BFF"/>
+      <stop offset="1" stop-color="#93CBFF"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#FFFFFF" stroke-opacity=".035"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="360" rx="24" fill="url(#background)"/>
+  <rect x="600" width="600" height="360" rx="24" fill="url(#grid)"/>
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <rect x="48" y="43" width="30" height="34" rx="7" stroke="#87BFFF" stroke-width="1.5"/>
+    <path d="M56 52H70M56 59H70M56 66H64" stroke="#87BFFF" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="92" y="66" fill="#C9D9EC" font-size="14" font-weight="600" letter-spacing="3">MEETING RECORDER</text>
+    <text x="46" y="150" fill="#F7FAFF" font-size="51" font-weight="650" letter-spacing="-1.8">From conversation</text>
+    <text x="46" y="213" fill="#F7FAFF" font-size="51" font-weight="650" letter-spacing="-1.8">to clarity<tspan fill="#479FFF">.</tspan></text>
+    <text x="49" y="253" fill="#A8B8CD" font-size="17">Keep the context. Follow the evidence.</text>
+    <g font-size="12" fill="#C5D7EE">
+      <rect x="48" y="290" width="96" height="28" rx="14" fill="none" stroke="#344861"/>
+      <text x="96" y="309" text-anchor="middle">Local first</text>
+      <rect x="156" y="290" width="128" height="28" rx="14" fill="none" stroke="#344861"/>
+      <text x="220" y="309" text-anchor="middle">Evidence linked</text>
+      <rect x="296" y="290" width="108" height="28" rx="14" fill="none" stroke="#344861"/>
+      <text x="350" y="309" text-anchor="middle">Your models</text>
+    </g>
+    <path d="M657 184H1090" stroke="#41658D" stroke-width="1.5" stroke-dasharray="4 6"/>
+    <rect x="638" y="125" width="130" height="118" rx="18" fill="#13253B" stroke="#345777"/>
+    <path d="M662 177V191M674 163V205M686 151V217M698 168V200M710 158V210M722 172V196M734 180V188M746 166V202" stroke="url(#line)" stroke-width="4" stroke-linecap="round"/>
+    <rect x="820" y="95" width="138" height="178" rx="18" fill="#172C44" stroke="#426C97"/>
+    <rect x="838" y="115" width="38" height="8" rx="4" fill="#78B8FF"/>
+    <path d="M840 144H938M840 156H926M840 177H938M840 189H908M840 211H938M840 223H920M840 244H896" stroke="#6785A6" stroke-width="4" stroke-linecap="round"/>
+    <rect x="833" y="168" width="112" height="31" rx="6" fill="#218BFF" fill-opacity=".15" stroke="#478FDC"/>
+    <circle cx="1067" cy="184" r="46" fill="#183953" stroke="#42799D"/>
+    <path d="m1049 184 12 12 25-27" stroke="#95D8EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#9CB4CD" font-size="11" letter-spacing="2" text-anchor="middle">
+      <text x="703" y="304">RECORD</text>
+      <text x="889" y="304">TRANSCRIBE</text>
+      <text x="1067" y="304">REVIEW</text>
+    </g>
+  </g>
+</svg>

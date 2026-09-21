@@ -1,0 +1,19 @@
+# Install CUDA PyTorch separately; this is the Windows-tested inference subset.
+transformers>=4.57,<5
+accelerate>=1.10,<2
+bitsandbytes>=0.49,<1
+diffusers>=0.35,<1
+numpy>=2,<3
+onnxruntime>=1.20,<2
+scipy>=1.15,<2
+librosa>=0.11,<1
+ml-collections>=1,<2
+absl-py>=2,<3
+av>=16,<18
+requests>=2.32,<3
+# Upstream demo requirements share the same environment; keep its Hub dependency
+# compatible with the 4.x Transformers ASR implementation.
+gradio>=5.50,<6
+huggingface-hub==0.36.2
+aiortc>=1.14,<2
+pydub>=0.25,<1

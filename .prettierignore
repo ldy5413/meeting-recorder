@@ -1,0 +1,17 @@
+node_modules/
+.npm/
+.cache/
+dist/
+dist-electron/
+release/
+.local/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+test-results/
+playwright-report/
+package-lock.json
+# Immutable design delivery; verified by its SHA-256 manifest.
+docs/design/meeting-redesign/

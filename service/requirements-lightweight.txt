@@ -1,0 +1,5 @@
+# Isolated evaluation environment; does not modify the VibeVoice environment.
+sherpa-onnx==1.13.8
+sherpa-onnx-core==1.13.8
+numpy==2.2.6
+psutil==7.0.0

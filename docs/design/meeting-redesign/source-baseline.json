@@ -1,0 +1,84 @@
+{
+  "project": "meeting-recorder",
+  "version": "0.1.9",
+  "commit": "4d7c7e1a47f68d2ab1dd6f3010d5bc04a65624cf",
+  "capturedAt": "2026-09-09T07:59:06.576Z",
+  "note": "文件哈希记录整理包时实际读取的内容；不表示工作区等同于 commit，接手后核对当前代码与修改。",
+  "files": [
+    {
+      "path": "package.json",
+      "sha256": "ce5160d1776ff6e4ae1d46d719089855ffba600c678a83aa5043afa25f45be78",
+      "bytes": 2211
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "ffc3d23536e430c26903d0ab5a81a2fd0c6b071e11820215f2c64ab9d081cc9c",
+      "bytes": 62973
+    },
+    {
+      "path": "src/style.css",
+      "sha256": "eabd43d1eb2f28627111f5f573adcbd5cb4b516bf17c36bb2d1e2fbfd487dc4e",
+      "bytes": 24236
+    },
+    {
+      "path": "src/Configuration.tsx",
+      "sha256": "64b5c8c3eeee74c56be583567f81757b377e1f53bf813ba5c965adcd14cf99b0",
+      "bytes": 13822
+    },
+    {
+      "path": "src/RecordPanel.tsx",
+      "sha256": "265dd8713d6c1b5bdde979e2d9e94dee05ed9d5f118f228d9b4c75a57139e1d3",
+      "bytes": 7274
+    },
+    {
+      "path": "src/recorder.ts",
+      "sha256": "2d21a6cfd5a9091d3975a0e00d28d8209edb06e5c309c5e8aeb3c3bc97fedf38",
+      "bytes": 5434
+    },
+    {
+      "path": "src/screen-recorder.ts",
+      "sha256": "e2d8933499c208a271dc03976636de8108541c6a25c41229fb940c737b7214ba",
+      "bytes": 10188
+    },
+    {
+      "path": "src/VideoPanel.tsx",
+      "sha256": "148615b743f49945b2774b5178e8f14ac67208967e14d5aeb758bec239d8afe0",
+      "bytes": 7904
+    },
+    {
+      "path": "src/MediaFiles.tsx",
+      "sha256": "786b3f1776c326587b5077f0eff4e8f36cf0919693c08ef50b043ea83bf85444",
+      "bytes": 2554
+    },
+    {
+      "path": "shared/types.ts",
+      "sha256": "9937bf662ebc0001dcb5cc54996b2ad4efb4637bc1c39e1d8c191d690a0334bf",
+      "bytes": 11009
+    },
+    {
+      "path": "shared/speakers.ts",
+      "sha256": "b8979f260dd8b44d103de4e9d11fa3618c8ca424b0d99cafb0c8c263b1ef3a4e",
+      "bytes": 994
+    },
+    {
+      "path": "shared/analysis.ts",
+      "sha256": "0642b3dec4e47d5ad4f61d718c4759aeac0d8a5106ac304167d99241eec98f15",
+      "bytes": 3650
+    },
+    {
+      "path": "electron/main.ts",
+      "sha256": "e899297b3646afc1174a7c60a007eded577fac99f2e9e4bb374912b2fd76e1d5",
+      "bytes": 33838
+    },
+    {
+      "path": "electron/preload.ts",
+      "sha256": "fdd92d51d55c33cb10516732af7cce710984f07aef2a6e613fe3c20e6e2c9561",
+      "bytes": 453
+    },
+    {
+      "path": "docs/development.md",
+      "sha256": "11dd95b046ce73204b462228af0e0448ff0c4473d4905f2fa698240abf42c227",
+      "bytes": 3053
+    }
+  ]
+}

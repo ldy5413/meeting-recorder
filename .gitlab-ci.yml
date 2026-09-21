@@ -1,0 +1,126 @@
+stages:
+  - verify
+  - release
+  - publish
+
+github_mirror:
+  stage: publish
+  image: node:24-bookworm
+  resource_group: github-public
+  environment:
+    name: github-public
+    action: prepare
+  variables:
+    GIT_DEPTH: "0"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "ldy/meeting-recorder"'
+  script:
+    - bash scripts/sync-github.sh
+
+desktop:
+  stage: verify
+  image: node:24-bookworm
+  rules:
+    # Rebuilds package an unchanged tag whose verify jobs have already passed.
+    - if: $REBUILD_RELEASE_TAG
+      when: never
+    - when: on_success
+  script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends ffmpeg
+    - npm ci
+    - npm run format:check
+    - npm test
+    - node --test scripts/test-public-sync.mjs
+    - npm run build
+
+transcription:
+  stage: verify
+  image: python:3.12-slim
+  rules:
+    - if: $REBUILD_RELEASE_TAG
+      when: never
+    - when: on_success
+  script:
+    - python -m pip install -r service/requirements-dev.txt
+    - python -m ruff check service scripts
+    - python -m ruff format --check service scripts
+    - python -m pytest service -q
+
+windows_release:
+  stage: release
+  tags:
+    - windows
+    - desktop-work
+  rules:
+    - if: $CI_COMMIT_TAG || $REBUILD_RELEASE_TAG
+  variables:
+    npm_config_cache: "$CI_PROJECT_DIR/.npm"
+    ELECTRON_CACHE: "$CI_PROJECT_DIR/.cache/electron"
+    ELECTRON_BUILDER_CACHE: "$CI_PROJECT_DIR/.cache/electron-builder"
+  cache:
+    key: windows-electron-builder
+    paths:
+      - .npm/
+      - .cache/electron/
+      - .cache/electron-builder/
+      - .local/local-asr-build/ffmpeg-8.1.2-essentials_build.zip
+  script:
+    - |
+      $releaseTag = $env:CI_COMMIT_TAG
+      if ($env:REBUILD_RELEASE_TAG) {
+        $releaseTag = $env:REBUILD_RELEASE_TAG
+        if ($releaseTag -notmatch '^v[0-9]+\.[0-9]+\.[0-9]+$' -or $env:REBUILD_RELEASE_SHA -notmatch '^[a-f0-9]{40}$') {
+          throw 'A rebuild requires a version tag and its verified full commit SHA.'
+        }
+        git fetch origin "refs/tags/${releaseTag}:refs/tags/${releaseTag}"
+        if ($LASTEXITCODE -ne 0) { throw 'Could not fetch the release tag.' }
+        $tagSha = git rev-parse "${releaseTag}^{commit}"
+        if ($tagSha -ne $env:REBUILD_RELEASE_SHA) { throw 'Release tag does not match the verified commit.' }
+        git checkout --detach $tagSha
+        if ($LASTEXITCODE -ne 0) { throw 'Could not check out the unchanged release source.' }
+        Write-Host "Rebuilding immutable tag $releaseTag from $tagSha"
+      }
+      $packageVersion = (Get-Content package.json -Raw -Encoding UTF8 | ConvertFrom-Json).version
+      if ($releaseTag -ne "v$packageVersion") { throw 'Release tag and package version differ.' }
+    - npm ci
+    # Electron 44 does not install its runtime as an npm lifecycle hook.
+    - node node_modules/electron/install.js
+    - npm test
+    - npm run dist:win -- --publish never
+    - |
+      $artifactName = "meeting-recorder-windows-x64-$($releaseTag.Replace('.', '-')).exe"
+      $installer = Get-ChildItem -Path release -Filter '*.exe' |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+      if (-not $installer) {
+        throw 'electron-builder did not produce a Windows installer'
+      }
+      $artifactPath = Join-Path 'release' $artifactName
+      Copy-Item -LiteralPath $installer.FullName -Destination $artifactPath -Force
+      $assetUrl = "$env:CI_PROJECT_URL/-/jobs/$env:CI_JOB_ID/artifacts/raw/release/$artifactName"
+      $releaseBody = @{
+        name = "Meeting Recorder $releaseTag"
+        tag_name = $releaseTag
+        description = "Windows x64 installer built automatically from $releaseTag."
+        assets = @{
+          links = @(
+            @{
+              name = 'Windows x64 installer'
+              url = $assetUrl
+              link_type = 'package'
+            }
+          )
+        }
+      } | ConvertTo-Json -Depth 5 -Compress
+      Invoke-RestMethod `
+        -Method Post `
+        -Headers @{ 'JOB-TOKEN' = $env:CI_JOB_TOKEN } `
+        -ContentType 'application/json' `
+        -Body ([System.Text.Encoding]::UTF8.GetBytes($releaseBody)) `
+        -Uri "$env:CI_API_V4_URL/projects/$env:CI_PROJECT_ID/releases"
+  artifacts:
+    name: "meeting-recorder-windows-x64-$CI_PIPELINE_ID"
+    paths:
+      - release/meeting-recorder-windows-x64-*.exe
+    expire_in: never

@@ -1,0 +1,141 @@
+.minutes-tabs {
+  display: flex;
+  gap: 8px;
+}
+.analysis-heading {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.player.compact-player video {
+  height: 76px;
+  width: min(440px, 60%);
+}
+.player > button {
+  flex-shrink: 0;
+}
+.minutes-tabs button[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--surface);
+  border-color: var(--fg);
+}
+.minutes-panel {
+  max-width: 920px;
+}
+.minutes-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.minutes-toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.minutes-toolbar select {
+  max-width: 100%;
+}
+.minutes-overview {
+  background: var(--fg-soft);
+  border-left: 3px solid var(--muted);
+  padding: 18px 24px;
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+.minutes-overview h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+.minutes-panel ul {
+  margin: 8px 0 16px;
+  padding-left: 22px;
+}
+.minutes-panel li {
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+.minutes-overview li {
+  margin-bottom: 8px;
+}
+.minutes-panel li > p {
+  white-space: pre-wrap;
+  margin: 0 0 5px;
+  overflow-wrap: anywhere;
+}
+.comfortable .minutes-panel li > p {
+  font-size: 16px;
+}
+.minutes-section {
+  margin: 24px 0;
+}
+.minutes-section > h3 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+.minutes-section.depth-1 {
+  margin: 16px 0;
+}
+.minutes-section h4 {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+.minutes-evidence {
+  font-size: 13px;
+}
+.minutes-evidence > summary {
+  cursor: pointer;
+  color: var(--muted);
+  padding: 3px 0;
+  min-height: 32px;
+}
+.minutes-evidence[open] {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 10px;
+}
+.minutes-evidence .claim {
+  font-size: 14px;
+}
+.minutes-settings {
+  border-top: 1px solid var(--border);
+  margin-top: 28px;
+  padding-top: 16px;
+}
+.minutes-settings > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.minutes-settings form {
+  display: grid;
+  gap: 16px;
+  max-width: 640px;
+  padding-top: 16px;
+}
+.minutes-settings label {
+  display: grid;
+  gap: 7px;
+}
+.minutes-settings textarea {
+  width: 100%;
+  resize: vertical;
+}
+.minutes-settings button {
+  justify-self: start;
+}
+.minutes-empty {
+  padding: 24px 0 10px;
+}
+@media (max-width: 700px) {
+  .minutes-overview {
+    padding: 16px;
+  }
+  .minutes-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
